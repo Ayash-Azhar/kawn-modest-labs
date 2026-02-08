@@ -1,68 +1,91 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Scissors, ShoppingBag, Ruler, CheckCircle2 } from "lucide-react"
+"use client"
+
+import { Scissors, ShoppingBag, Ruler, Moon, Gem } from "lucide-react"
+import { motion } from "framer-motion"
 
 const services = [
     {
-        title: "Custom Shalwars & Kameez",
-        description: "Perfectly fitted traditional wear tailored to your style and preference.",
+        title: "Custom Shalwars",
+        description: "Perfectly fitted traditional wear tailored to your style.",
         icon: ShoppingBag,
     },
     {
-        title: "Wedding Dresses",
-        description: "Exquisite bridal wear and party dresses designed for your special day.",
+        title: "Bridal Couture",
+        description: "Exquisite bridal wear designed for your special day.",
         icon: Gem,
     },
     {
-        title: "Islamic Clothing",
-        description: "Modest abayas, jilbabs, and hijabs crafted with elegance and comfort.",
-        icon: CheckCircle2,
+        title: "Islamic Wear",
+        description: "Modest abayas and hijabs crafted with elegance.",
+        icon: Moon,
     },
     {
         title: "Expert Alterations",
-        description: "Precision alterations to make your existing wardrobe fit perfectly.",
+        description: "Precision alterations for a perfect fit.",
         icon: Scissors,
     },
     {
         title: "Fabric Consultation",
-        description: "Guidance on selecting the best fabrics for your design and occasion.",
+        description: "Guidance on selecting the best fabrics.",
         icon: Ruler,
-    },
-    {
-        title: "Bulk Orders",
-        description: "Tailoring services for groups, events, and uniforms.",
-        icon: CheckCircle2,
     },
 ]
 
-import { Gem } from "lucide-react"
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+}
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+}
 
 export function Services() {
     return (
-        <section id="services" className="py-20 bg-background">
-            <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div className="space-y-2">
-                        <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Our Expertise</div>
-                        <h2 className="text-3xl font-bold font-serif tracking-tighter sm:text-5xl">Tailored to Perfection</h2>
-                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            We offer a wide range of tailoring services to meet all your modest fashion needs.
+        <section id="services" className="py-12 md:py-24 bg-muted/30">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-24 items-start">
+                    {/* Left: Sticky Heading */}
+                    <div className="lg:sticky lg:top-32 space-y-4 md:space-y-6 text-center lg:text-left">
+                        <span className="text-secondary tracking-widest text-xs md:text-sm font-semibold uppercase">Our Expertise</span>
+                        <h2 className="text-3xl font-bold font-serif tracking-tight sm:text-5xl md:text-6xl text-foreground">Tailored to<br />Perfection</h2>
+                        <p className="max-w-[350px] text-muted-foreground text-sm md:text-lg leading-relaxed font-light mx-auto lg:mx-0">
+                            Uncompromising quality and attention to detail involves more than just a needle and thread.
                         </p>
                     </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full max-w-7xl mx-auto">
-                    {services.map((service, index) => (
-                        <Card key={index} className="border-muted/60 shadow-sm hover:shadow-md transition-all">
-                            <CardHeader>
-                                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                    <service.icon className="w-6 h-6 text-primary" />
+
+                    {/* Right: Editorial Grid */}
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-16"
+                    >
+                        {services.map((service, index) => (
+                            <motion.div key={index} variants={itemVariants} className="group cursor-default">
+                                <div className="border-t border-primary/20 pt-4 md:pt-6 transition-colors group-hover:border-primary/60 duration-500">
+                                    <div className="flex justify-between items-center gap-4 md:gap-6">
+                                        <div className="space-y-2 md:space-y-3">
+                                            <h3 className="text-xl md:text-2xl font-serif font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                                                {service.title}
+                                            </h3>
+                                            <p className="text-muted-foreground text-sm md:text-base font-light leading-relaxed">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                        <service.icon className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0 text-muted-foreground/50 group-hover:text-primary transition-colors duration-300" strokeWidth={1} />
+                                    </div>
                                 </div>
-                                <CardTitle>{service.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <CardDescription className="text-base">{service.description}</CardDescription>
-                            </CardContent>
-                        </Card>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </div>
         </section>
