@@ -20,7 +20,7 @@ export function Contact() {
                         className="space-y-8"
                     >
                         <div className="space-y-4">
-                            <span className="text-secondary tracking-widest text-sm font-semibold uppercase">Contact Us</span>
+
                             <h2 className="text-4xl font-bold font-serif tracking-tight sm:text-5xl text-foreground">Begin Your Bespoke Journey</h2>
                             <p className="text-muted-foreground md:text-xl/relaxed font-light leading-relaxed">
                                 Ready to create something beautiful? Contact us to schedule a private consultation or to discuss your custom requirements.
@@ -78,9 +78,7 @@ export function Contact() {
                                 <Label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">Message</Label>
                                 <Textarea id="message" placeholder="Tell us about your project..." className="min-h-[120px] border-0 border-b border-input rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-colors bg-transparent resize-none" />
                             </div>
-                            <Button type="submit" className="w-full rounded-none py-6 text-lg font-serif bg-primary hover:bg-primary/90 mt-4">
-                                Send Message
-                            </Button>
+
                         </form>
                     </motion.div>
                 </div>

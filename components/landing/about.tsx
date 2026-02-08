@@ -16,11 +16,7 @@ export function About() {
                         <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                             Whether you need a simple alteration or a custom-designed wedding dress, our team is dedicated to providing you with the highest quality service and attention to detail. We take pride in creating garments that make you look and feel your best.
                         </p>
-                        <div className="flex gap-4 pt-4">
-                            <Link href="#contact">
-                                <Button>Contact Us</Button>
-                            </Link>
-                        </div>
+
                     </div>
                     <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-xl border bg-muted shadow-xl">
                         {/* About Image */}
