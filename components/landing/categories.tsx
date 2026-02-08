@@ -40,30 +40,30 @@ export function Categories() {
                     <div className="h-1 w-20 bg-secondary/50 rounded-full" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 h-auto md:h-[600px]">
-                    {/* First large item */}
-                    <Link href="#" className="group relative overflow-hidden rounded-sm md:col-span-2 md:row-span-2">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 h-auto md:h-[600px]">
+                    {/* First large item - Full width on mobile */}
+                    <Link href="#" className="col-span-2 md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-sm aspect-[4/3] md:aspect-auto">
                         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                             <img
                                 src="/images/hero-2.png"
                                 alt="Modest Abaya collection"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-top"
                             />
                         </div>
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
 
-                        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                            <h3 className="text-3xl font-serif font-medium mb-2">Abayas</h3>
-                            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
-                                <span className="text-sm tracking-wide uppercase">View Collection</span>
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white">
+                            <h3 className="text-2xl md:text-3xl font-serif font-medium mb-2">Abayas</h3>
+                            <div className="flex items-center gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity transform md:translate-y-4 group-hover:translate-y-0 duration-300">
+                                <span className="text-xs md:text-sm tracking-wide uppercase">View Collection</span>
                                 <ArrowUpRight className="w-4 h-4" />
                             </div>
                         </div>
                     </Link>
 
-                    {/* Second Item */}
-                    <Link href="#" className="group relative overflow-hidden rounded-sm md:col-span-1 md:row-span-2">
+                    {/* Second Item - Half width on mobile */}
+                    <Link href="#" className="col-span-1 md:col-span-1 md:row-span-2 group relative overflow-hidden rounded-sm aspect-[3/5] md:aspect-auto">
                         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 origin-top">
                             <img
                                 src="/images/bridal.png"
@@ -71,16 +71,20 @@ export function Categories() {
                                 className="w-full h-full object-cover object-top"
                             />
                         </div>
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                        <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                            <h3 className="text-2xl font-serif font-medium mb-1">Bridal Wear</h3>
-                            <p className="text-sm text-white/80">Exquisite Splendor</p>
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 text-white">
+                            <h3 className="text-lg md:text-2xl font-serif font-medium mb-1">Bridal Wear</h3>
+                            <div className="flex items-center gap-2 md:hidden opacity-100">
+                                <span className="text-[10px] text-white/90">View</span>
+                                <ArrowUpRight className="w-3 h-3 text-white/90" />
+                            </div>
+                            <p className="text-sm text-white/90 hidden md:block">Exquisite Splendor</p>
                         </div>
                     </Link>
 
-                    {/* Stacked Items */}
-                    <div className="flex flex-col gap-4 md:gap-8 md:col-span-1 md:row-span-2">
-                        <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm">
+                    {/* Stacked Items - Half width, stacked vertically to match Bridal height */}
+                    <div className="col-span-1 md:col-span-1 md:row-span-2 flex flex-col gap-4 md:gap-8 aspect-[3/5] md:aspect-auto">
+                        <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm h-full">
                             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 origin-top">
                                 <img
                                     src="/images/shalwar.png"
@@ -88,12 +92,16 @@ export function Categories() {
                                     className="w-full h-full object-cover object-top"
                                 />
                             </div>
-                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                                <h3 className="text-xl font-serif font-medium">Shalwar Kameez</h3>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                            <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 text-white">
+                                <h3 className="text-sm md:text-xl font-serif font-medium mb-1 md:mb-0">Shalwar Kameez</h3>
+                                <div className="flex items-center gap-2 md:hidden opacity-100">
+                                    <span className="text-[10px] text-white/90">View</span>
+                                    <ArrowUpRight className="w-3 h-3 text-white/90" />
+                                </div>
                             </div>
                         </Link>
-                        <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm">
+                        <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm h-full">
                             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                                 <img
                                     src="/images/homewear.png"
@@ -101,9 +109,13 @@ export function Categories() {
                                     className="w-full h-full object-cover object-top"
                                 />
                             </div>
-                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                                <h3 className="text-xl font-serif font-medium">Home Wear</h3>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                            <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 text-white">
+                                <h3 className="text-sm md:text-xl font-serif font-medium mb-1 md:mb-0">Home Wear</h3>
+                                <div className="flex items-center gap-2 md:hidden opacity-100">
+                                    <span className="text-[10px] text-white/90">View</span>
+                                    <ArrowUpRight className="w-3 h-3 text-white/90" />
+                                </div>
                             </div>
                         </Link>
                     </div>
