@@ -65,7 +65,7 @@ export function Hero() {
                         transition={{ delay: 0.8, duration: 0.8 }}
                         className="absolute -bottom-6 right-0 lg:-left-6 lg:right-auto bg-card p-5 shadow-xl border border-border max-w-[200px] lg:max-w-xs text-center lg:text-left z-10"
                     >
-                        <p className="font-serif text-sm lg:text-lg italic text-primary">“The beauty of a woman is seen in her eyes...”</p>
+                        <p className="font-serif text-sm lg:text-lg italic text-primary">“The beauty of a woman must be seen from in her eyes, because that is the doorway to her heart, the place where love resides.”</p>
                     </motion.div>
                 </motion.div>
             </div>
