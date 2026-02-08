@@ -1,7 +1,6 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Scissors, ShoppingBag, Ruler, CheckCircle2, Gem } from "lucide-react"
+import { Scissors, ShoppingBag, Ruler, Moon, Gem } from "lucide-react"
 import { motion } from "framer-motion"
 
 const services = [
@@ -18,7 +17,7 @@ const services = [
     {
         title: "Islamic Wear",
         description: "Modest abayas and hijabs crafted with elegance.",
-        icon: CheckCircle2,
+        icon: Moon,
     },
     {
         title: "Expert Alterations",
@@ -29,11 +28,6 @@ const services = [
         title: "Fabric Consultation",
         description: "Guidance on selecting the best fabrics.",
         icon: Ruler,
-    },
-    {
-        title: "Bulk Orders",
-        description: "Tailoring services for events and uniforms.",
-        icon: CheckCircle2,
     },
 ]
 
@@ -54,41 +48,45 @@ const itemVariants = {
 
 export function Services() {
     return (
-        <section id="services" className="py-24 bg-muted/30">
-            <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-                    <div className="space-y-2">
+        <section id="services" className="py-20 md:py-24 bg-muted/30">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-start">
+                    {/* Left: Sticky Heading */}
+                    <div className="lg:sticky lg:top-32 space-y-6">
                         <span className="text-secondary tracking-widest text-sm font-semibold uppercase">Our Expertise</span>
-                        <h2 className="text-3xl font-bold font-serif tracking-tight sm:text-5xl text-foreground">Tailored to Perfection</h2>
-                        <p className="max-w-[700px] text-muted-foreground md:text-lg/relaxed font-light mx-auto">
-                            We offer a wide range of tailoring services to meet all your modest fashion needs with uncompromising quality.
+                        <h2 className="text-4xl font-bold font-serif tracking-tight sm:text-5xl md:text-6xl text-foreground">Tailored to<br />Perfection</h2>
+                        <p className="max-w-[350px] text-muted-foreground text-base md:text-lg leading-relaxed font-light">
+                            Uncompromising quality and attention to detail involves more than just a needle and thread.
                         </p>
                     </div>
-                </div>
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto"
-                >
-                    {services.map((service, index) => (
-                        <motion.div key={index} variants={itemVariants}>
-                            <Card className="border-none shadow-sm hover:shadow-xl transition-all duration-300 bg-background h-full group">
-                                <CardHeader className="text-center pt-8">
-                                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/5 transition-colors">
-                                        <service.icon className="w-7 h-7 text-primary/80 group-hover:text-primary transition-colors" />
+                    {/* Right: Editorial Grid */}
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16"
+                    >
+                        {services.map((service, index) => (
+                            <motion.div key={index} variants={itemVariants} className="group cursor-default">
+                                <div className="border-t border-primary/20 pt-6 transition-colors group-hover:border-primary/60 duration-500">
+                                    <div className="flex justify-between items-center gap-6">
+                                        <div className="space-y-3">
+                                            <h3 className="text-2xl font-serif font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                                                {service.title}
+                                            </h3>
+                                            <p className="text-muted-foreground text-base font-light leading-relaxed">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                        <service.icon className="w-8 h-8 flex-shrink-0 text-muted-foreground/50 group-hover:text-primary transition-colors duration-300" strokeWidth={1} />
                                     </div>
-                                    <CardTitle className="font-serif text-xl">{service.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-center pb-8">
-                                    <CardDescription className="text-base font-light">{service.description}</CardDescription>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </section>
     )

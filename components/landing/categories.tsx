@@ -33,7 +33,7 @@ const categories = [
 export function Categories() {
     return (
         <section id="categories" className="py-24 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center text-center space-y-4 mb-16">
                     <span className="text-secondary tracking-widest text-sm font-semibold uppercase">Our Collections</span>
                     <h2 className="text-4xl md:text-5xl font-bold font-serif text-foreground">Curated for the Modern Woman</h2>
@@ -64,11 +64,11 @@ export function Categories() {
 
                     {/* Second Item */}
                     <Link href="#" className="group relative overflow-hidden rounded-sm md:col-span-1 md:row-span-2">
-                        <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                        <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 origin-top">
                             <img
-                                src="https://images.unsplash.com/photo-1606553258591-6454722881b7?q=80&w=1000&auto=format&fit=crop"
+                                src="/images/bridal.png"
                                 alt="Bridal wear"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-top"
                             />
                         </div>
                         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
@@ -81,11 +81,11 @@ export function Categories() {
                     {/* Stacked Items */}
                     <div className="flex flex-col gap-4 md:gap-8 md:col-span-1 md:row-span-2">
                         <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm">
-                            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 origin-top">
                                 <img
-                                    src="https://images.unsplash.com/photo-1627483298423-03e2e92a5c6d?q=80&w=1000&auto=format&fit=crop"
+                                    src="/images/shalwar.png"
                                     alt="Shalwar Kameez"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
                                 />
                             </div>
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
@@ -96,9 +96,9 @@ export function Categories() {
                         <Link href="#" className="group relative flex-1 overflow-hidden rounded-sm">
                             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                                 <img
-                                    src="https://images.unsplash.com/photo-1601614924707-1d57551068bd?q=80&w=1000&auto=format&fit=crop"
+                                    src="/images/homewear.png"
                                     alt="Home wear"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
                                 />
                             </div>
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />

@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react"
 export function Footer() {
     return (
         <footer className="w-full border-t bg-background py-10 md:py-16">
-            <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="container mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div className="flex flex-col gap-4">
                     <h3 className="text-lg font-bold">Modest Clothing</h3>
                     <p className="text-sm text-muted-foreground">
@@ -57,7 +57,7 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="container mt-8 border-t pt-8">
+            <div className="container mx-auto mt-8 border-t pt-8">
                 <p className="text-center text-sm text-muted-foreground">
                     © {new Date().getFullYear()} Modest Clothing. All rights reserved.
                 </p>
