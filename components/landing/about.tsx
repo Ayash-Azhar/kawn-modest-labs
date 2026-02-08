@@ -23,7 +23,7 @@ export function About() {
                         <img
                             src="/images/hero-3.png"
                             alt="Detailed craftsmanship"
-                            className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                            className="object-cover w-full h-full grayscale-0 lg:grayscale lg:hover:grayscale-0 transition-all duration-700"
                         />
                         <div className="absolute inset-0 border-[1px] border-white/20 m-4 pointer-events-none" />
                     </div>
