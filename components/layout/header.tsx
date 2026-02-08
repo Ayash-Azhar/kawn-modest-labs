@@ -22,8 +22,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <ShoppingBag className="h-6 w-6" />
-            <span className="text-xl font-bold tracking-tight">Modest Clothing</span>
+            <span className="text-2xl font-serif font-bold tracking-tighter text-primary">Modest Clothing</span>
           </Link>
         </div>
 

@@ -1,69 +1,94 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Scissors, ShoppingBag, Ruler, CheckCircle2 } from "lucide-react"
+import { Scissors, ShoppingBag, Ruler, CheckCircle2, Gem } from "lucide-react"
+import { motion } from "framer-motion"
 
 const services = [
     {
-        title: "Custom Shalwars & Kameez",
-        description: "Perfectly fitted traditional wear tailored to your style and preference.",
+        title: "Custom Shalwars",
+        description: "Perfectly fitted traditional wear tailored to your style.",
         icon: ShoppingBag,
     },
     {
-        title: "Wedding Dresses",
-        description: "Exquisite bridal wear and party dresses designed for your special day.",
+        title: "Bridal Couture",
+        description: "Exquisite bridal wear designed for your special day.",
         icon: Gem,
     },
     {
-        title: "Islamic Clothing",
-        description: "Modest abayas, jilbabs, and hijabs crafted with elegance and comfort.",
+        title: "Islamic Wear",
+        description: "Modest abayas and hijabs crafted with elegance.",
         icon: CheckCircle2,
     },
     {
         title: "Expert Alterations",
-        description: "Precision alterations to make your existing wardrobe fit perfectly.",
+        description: "Precision alterations for a perfect fit.",
         icon: Scissors,
     },
     {
         title: "Fabric Consultation",
-        description: "Guidance on selecting the best fabrics for your design and occasion.",
+        description: "Guidance on selecting the best fabrics.",
         icon: Ruler,
     },
     {
         title: "Bulk Orders",
-        description: "Tailoring services for groups, events, and uniforms.",
+        description: "Tailoring services for events and uniforms.",
         icon: CheckCircle2,
     },
 ]
 
-import { Gem } from "lucide-react"
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+}
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+}
 
 export function Services() {
     return (
-        <section id="services" className="py-20 bg-background">
+        <section id="services" className="py-24 bg-muted/30">
             <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
                     <div className="space-y-2">
-                        <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Our Expertise</div>
-                        <h2 className="text-3xl font-bold font-serif tracking-tighter sm:text-5xl">Tailored to Perfection</h2>
-                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            We offer a wide range of tailoring services to meet all your modest fashion needs.
+                        <span className="text-secondary tracking-widest text-sm font-semibold uppercase">Our Expertise</span>
+                        <h2 className="text-3xl font-bold font-serif tracking-tight sm:text-5xl text-foreground">Tailored to Perfection</h2>
+                        <p className="max-w-[700px] text-muted-foreground md:text-lg/relaxed font-light mx-auto">
+                            We offer a wide range of tailoring services to meet all your modest fashion needs with uncompromising quality.
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full max-w-7xl mx-auto">
+
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto"
+                >
                     {services.map((service, index) => (
-                        <Card key={index} className="border-muted/60 shadow-sm hover:shadow-md transition-all">
-                            <CardHeader>
-                                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                    <service.icon className="w-6 h-6 text-primary" />
-                                </div>
-                                <CardTitle>{service.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <CardDescription className="text-base">{service.description}</CardDescription>
-                            </CardContent>
-                        </Card>
+                        <motion.div key={index} variants={itemVariants}>
+                            <Card className="border-none shadow-sm hover:shadow-xl transition-all duration-300 bg-background h-full group">
+                                <CardHeader className="text-center pt-8">
+                                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/5 transition-colors">
+                                        <service.icon className="w-7 h-7 text-primary/80 group-hover:text-primary transition-colors" />
+                                    </div>
+                                    <CardTitle className="font-serif text-xl">{service.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="text-center pb-8">
+                                    <CardDescription className="text-base font-light">{service.description}</CardDescription>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

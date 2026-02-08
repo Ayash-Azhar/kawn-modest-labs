@@ -24,10 +24,13 @@ export function About() {
                         </div>
                     </div>
                     <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-xl border bg-muted shadow-xl">
-                        {/* Placeholder for About Image */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-400">
-                            <span className="text-lg">About Image Placeholder</span>
-                        </div>
+                        {/* About Image */}
+                        <img
+                            src="/images/hero-3.png"
+                            alt="Detailed craftsmanship"
+                            className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 border-[1px] border-white/20 m-4 pointer-events-none" />
                     </div>
                 </div>
             </div>
